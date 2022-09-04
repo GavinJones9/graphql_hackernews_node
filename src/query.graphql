@@ -1,0 +1,63 @@
+mutation post{
+  post(url: "www.graphqlweekly.com", 
+    description: "Curated GraphQL content coming to your email inbox every Friday test 16"
+  ) {
+    id
+  }
+}
+query feed{
+  feed{
+    id
+  }
+}
+mutation vote{
+  vote(linkId: 15) {
+    link {
+      url
+      description
+    }
+    user {
+      name
+      email
+    }
+  }
+}
+query feedFilter{
+  feed(filter: "test") {
+    id
+    description
+    url
+    postedBy {
+      id
+      name
+    }
+  }
+}
+query feedSort{
+  feed(orderBy: { createdAt: asc }) {
+    id
+    description
+    url
+  }
+}
+query feedWithCount{
+  feed {
+    count
+    links {
+      id
+      description
+      url
+    }
+  }
+}
+
+query feedWithCount{
+  feed (filter:"test"){
+    count
+    links {
+      id
+      description
+      url
+    }
+  }
+}

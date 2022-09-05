@@ -53,7 +53,6 @@ const server = new ApolloServer({
     ),
     resolvers,
     context: ({ req }) => {
-        console.log(req);
         return {
             ...req,
             prisma,
